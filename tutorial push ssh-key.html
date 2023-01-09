@@ -1,0 +1,29 @@
+#pindah ke direktori ssh
+cd ~/.ssh/ #pindah ke direktori ssh
+
+#membuat private key dan public key
+ssh-keygen -t rsa
+ssh-keygen -t rsa -C "email.com" -b 4096
+
+#konfigurasi akun
+git config --global user.name "username"
+git config --global user.email "email"
+
+#tambah ssh-key
+cat ~/.ssh/id_rsa.pub
+
+masuk ke github tambahkan ssh-key ke akun
+
+ssh-add id_rsa (apabila error lakukan perintah eval)
+
+eval $(ssh-agent -s)
+
+#uji ssh key
+ssh -T git@github.com
+
+optional
+tambahkan file config,masukkan script berikut:
+# GitLab.com server
+Host gitlab.com
+IdentityFile ~/.ssh/dian
+
